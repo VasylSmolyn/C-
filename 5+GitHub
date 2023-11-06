@@ -1,0 +1,68 @@
+#include <iostream>
+#include <queue>
+#include <random>
+
+class Queue {
+    std::queue<int> q;
+public:
+    void push(int time) {
+        q.push(time);
+    }
+    int pop() {
+        int time = q.front();
+        q.pop();
+        return time;
+    }
+    int peek() {
+        return q.front();
+    }
+    bool isEmpty() {
+        return q.empty();
+    }
+};
+
+class Bankomat {
+    Queue q;
+    int currentTime;
+    int currentCustomerTime;
+public:
+    Bankomat() : currentTime(0), currentCustomerTime(0) {}
+
+    void simulate() {
+        for (currentTime = 0; currentTime < 24 * 60; ++currentTime) {
+            if (rand() % 100 < getProbability()) {
+                int time = rand() % 9 + 2;
+                q.push(time);
+                std::cout << "Korystuvach " << time << " pidijshov do bankomatu. " << currentTime / 60 << ":" << currentTime % 60 << "\n";
+            }
+
+            if (currentCustomerTime == 0 && !q.isEmpty()) {
+                currentCustomerTime = q.pop();
+                std::cout << "Korystuvach " << currentCustomerTime << " pochav robotu " << currentTime / 60 << ":" << currentTime % 60 << "\n";
+            }
+
+            if (currentCustomerTime > 0) {
+                --currentCustomerTime;
+                if (currentCustomerTime == 0) {
+                    std::cout << "Korystuvach zavershyv robotu " << currentTime / 60 << ":" << currentTime % 60 << "\n";
+                }
+            }
+        }
+    }
+
+private:
+    int getProbability() {
+        int hour = currentTime / 60;
+        if (hour >= 0 && hour < 6) return 1;
+        if (hour >= 6 && hour < 9) return 5;
+        if (hour >= 21 && hour < 24) return 5;
+        return 10;
+    }
+};
+
+int main() {
+    srand(time(0));
+    Bankomat b;
+    b.simulate();
+    return 0;
+}
