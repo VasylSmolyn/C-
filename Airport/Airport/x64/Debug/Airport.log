@@ -1,0 +1,15 @@
+﻿  AirControl.cpp
+  Airport.cpp
+D:\C++ progect\Airport\Airport\Airport.h(8,10): fatal  error C1083: Cannot open include file: 'Stat.h': No such file or directory
+  DialogManager.cpp
+D:\C++ progect\Airport\Airport\Airport.h(8,10): fatal  error C1083: Cannot open include file: 'Stat.h': No such file or directory
+  DlgCommand.cpp
+D:\C++ progect\Airport\Airport\Airport.h(8,10): fatal  error C1083: Cannot open include file: 'Stat.h': No such file or directory
+  GroundControl.cpp
+D:\C++ progect\Airport\Airport\GroundControl.cpp(16,22): error C2065: 'm_rStat': undeclared identifier
+D:\C++ progect\Airport\Airport\GroundControl.cpp(28,26): error C2065: 'm_rStat': undeclared identifier
+  main.cpp
+D:\C++ progect\Airport\Airport\Airport.h(8,10): fatal  error C1083: Cannot open include file: 'Stat.h': No such file or directory
+  Plane.cpp
+  PlanesControl.cpp
+  Generating Code...
